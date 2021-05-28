@@ -2,8 +2,9 @@ import { weatherBitUrl, weatherBitKey} from "../shared/constants";
 
 export async function getAmbientTemperature() {
 
-    const data = await weatherApiCall();
-    console.log(data);
+    const {data} = await weatherApiCall();
+    const {[0]: {temp}} = data;
+    return temp;
 }
 
 function weatherApiCall() {
@@ -12,5 +13,5 @@ function weatherApiCall() {
 
     const request = new Request(`${weatherBitUrl}${requestString}`);
     return fetch(request)
-        .then((response) => response.data);
+        .then((response) => response.json());
 }

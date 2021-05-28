@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {getAmbientTemperature} from "../../services/weather";
 
 export function WeatherTemperature () {
 
@@ -6,7 +7,8 @@ export function WeatherTemperature () {
 
     useEffect(() => {
         if (ambientTemp === undefined) {
-            setAmbientTemp(12);
+            getAmbientTemperature()
+                .then((temp) => setAmbientTemp(temp));
         }
     }, [ambientTemp])
     return <div>
