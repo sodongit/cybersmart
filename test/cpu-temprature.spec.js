@@ -28,6 +28,6 @@ describe("cpu temperature component test ", () => {
             ReactDOM.render(<CpuTemperature />, rootContainer);
         });
         const span = rootContainer.querySelector("span");
-        expect(span.textContent).to.equal("the cputemp is 10C");
+        expect(span.textContent).to.equal("the cpu temp is 10C");
     });
 });

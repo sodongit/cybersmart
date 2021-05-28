@@ -10,6 +10,6 @@ export function CpuTemperature() {
         }
     }, [cpuTemp]);
     return <div>
-        <span>the cputemp is {cpuTemp}C</span>
+        <span>the cpu temp is {cpuTemp}C</span>
     </div>
 }
