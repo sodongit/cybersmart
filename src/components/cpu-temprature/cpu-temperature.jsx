@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {getCpuStats} from '../../services/cpu';
-import {text} from '../../shared/constants';
+import {resourceText} from '../../shared/constants';
 
 export function CpuTemperature() {
     const [cpuTemp, setCpuTemp] = useState();
@@ -12,8 +12,8 @@ export function CpuTemperature() {
 
     const cpuText = () => (
         cpuTemp === 'error' ?
-            text.cpuTempError :
-            text.cpuTemp.replace('{0]', cpuTemp)
+            resourceText.cpuTempError :
+            resourceText.cpuTemp.replace('{0]', cpuTemp)
     );
 
     return <React.Fragment>
