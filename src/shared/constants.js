@@ -39,7 +39,12 @@ export const dataDictionary = {
     "solar_rad": " Estimated Solar Radiation (W/m^2)",
     "elev_angle": " Solar elevation angle (degrees)",
     "h_angle": " Solar hour angle (degrees)",
-}
+};
 
 export const weatherBitKey = "d411e9512c494c6cb2c1e113b5907e03";
-export const weatherBitUrl = "http://api.weatherbit.io/v2.0/current"
+export const weatherBitUrl = "https://api.weatherbit.io/v2.0/current";
+
+export const text = {
+    cpuTempError: 'There was an error with getting the cpu temperature',
+    cpuTemp: 'There cpu temperature is {0}',
+};
