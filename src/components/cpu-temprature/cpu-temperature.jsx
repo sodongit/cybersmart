@@ -1,15 +1,22 @@
 import React, {useEffect, useState} from 'react';
+import {getCpuStats} from '../../services/cpu';
+import {text} from '../../shared/constants';
 
 export function CpuTemperature() {
     const [cpuTemp, setCpuTemp] = useState();
 
+    useEffect(async () => {
+        const data = await getCpuStats();
+        setCpuTemp(data);
+    }, []);
 
-    useEffect(() => {
-        if (cpuTemp === undefined) {
-            setCpuTemp(10);
-        }
-    }, [cpuTemp]);
-    return <div>
-        <span>the cpu temp is {cpuTemp}C</span>
-    </div>
+    const cpuText = () => (
+        cpuTemp === 'error' ?
+            text.cpuTempError :
+            text.cpuTemp.replace('{0]', cpuTemp)
+    );
+
+    return <React.Fragment>
+        <span>{cpuText()}</span>
+    </React.Fragment>
 }
