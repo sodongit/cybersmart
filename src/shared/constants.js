@@ -1,4 +1,4 @@
-export const dataDictionary = {
+export const weatherBitApi = {
     "lat": " Latitude (Degrees)",
     "lon": " Longitude (Degrees)",
     "sunrise": " Sunrise time (HH:MM)",
