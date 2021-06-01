@@ -44,7 +44,9 @@ export const dataDictionary = {
 export const weatherBitKey = "d411e9512c494c6cb2c1e113b5907e03";
 export const weatherBitUrl = "https://api.weatherbit.io/v2.0/current";
 
-export const text = {
+export const resourceText = {
     cpuTempError: 'There was an error with getting the cpu temperature',
     cpuTemp: 'There cpu temperature is {0}',
+    weatherTempError: 'There was an error with getting the weather temperature',
+    weatherTemp: 'It\'s {0}C outside'
 };

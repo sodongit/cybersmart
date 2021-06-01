@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import {resourceText} from '../../shared/constants';
 import {getAmbientTemperature} from "../../services/weather";
 
-export function WeatherTemperature () {
+export function WeatherTemperature() {
 
     const [ambientTemp, setAmbientTemp] = useState();
 
@@ -10,9 +11,18 @@ export function WeatherTemperature () {
             getAmbientTemperature()
                 .then((temp) => setAmbientTemp(temp));
         }
-    }, [ambientTemp])
-    return <div>
-        <span>It's {ambientTemp}C outside</span>
-    </div>
+    }, [ambientTemp]);
+
+    const getWeatherText = () => (
+        ambientTemp === 'error' ?
+            resourceText.weatherTempError :
+            resourceText.weatherTemp.replace('{0}', ambientTemp)
+    )
+
+    return <React.Fragment>
+        <span>{getWeatherText()}</span>
+    </React.Fragment>;
 
 }
+
+
